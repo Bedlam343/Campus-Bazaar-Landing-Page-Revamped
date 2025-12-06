@@ -61,7 +61,7 @@ const HeroOptionA_Background = () => {
             <div className="flex flex-wrap gap-4 items-center">
               <Button
                 variant="accent"
-                className="text-lg px-8 py-4 shadow-amber-500/20"
+                className="text-lg px-8 py-4 shadow-amber-500/20 cursor-pointer"
               >
                 Start Selling <ArrowRight size={20} className="ml-1" />
               </Button>

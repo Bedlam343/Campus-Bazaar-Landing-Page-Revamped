@@ -9,7 +9,7 @@ const TrustSignals = () => {
   ];
 
   return (
-    <div className="bg-slate-900 border-y border-slate-800 py-10">
+    <div className="bg-slate-950  py-10">
       <div className="container mx-auto px-6">
         <div className="flex flex-wrap justify-center gap-8 md:gap-20">
           {features.map((f, i) => (
@@ -20,8 +20,8 @@ const TrustSignals = () => {
               transition={{ delay: i * 0.1 }}
               className="flex items-center gap-3 text-slate-300 font-medium"
             >
-              <div className="text-amber-400">{f.icon}</div>
-              {f.text}
+              <div className="text-amber-400 scale-110">{f.icon}</div>
+              <span className="text-lg select-none">{f.text}</span>
             </motion.div>
           ))}
         </div>

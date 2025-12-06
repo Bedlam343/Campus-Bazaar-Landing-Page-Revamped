@@ -1,38 +1,81 @@
-import { motion } from 'motion/react';
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
+import {
+  AnimationPlaybackControlsWithThen,
+  motion,
+  useInView,
+} from 'motion/react';
 import { Search, Sparkles } from 'lucide-react';
+
 import Button from './ui/Button';
+import { animate } from 'motion';
+
+const inputs = [
+  'Find a used MacBook under $800',
+  'Find calculus book required for Math 101',
+  "Who's selling dorm furniture on campus?",
+  'Find affordable bikes near UCLA',
+  'Looking for a used iPhone 12 or 13',
+];
 
 const SmartSearch = () => {
   const [text, setText] = useState('');
-  const fullText = "Who's selling a mini-fridge in freshman dorms?";
-  const [isTyping, setIsTyping] = useState(true);
+  const [inputIndex, setInputIndex] = useState<number>(0);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true });
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    if (!isInView) return;
 
-    if (isTyping) {
-      if (text.length < fullText.length) {
-        timeout = setTimeout(
-          () => {
-            setText(fullText.slice(0, text.length + 1));
-          },
-          50 + Math.random() * 50,
-        ); // Random typing speed
-      } else {
-        timeout = setTimeout(() => setIsTyping(false), 2000);
-      }
-    } else {
-      if (text.length > 0) {
-        timeout = setTimeout(() => {
-          setText(text.slice(0, -1));
-        }, 30);
-      } else {
-        timeout = setTimeout(() => setIsTyping(true), 500);
-      }
-    }
-    return () => clearTimeout(timeout);
-  }, [text, isTyping]);
+    let controls: AnimationPlaybackControlsWithThen;
+    let isMounted = true;
+    const currentInput = inputs[inputIndex];
+
+    const typeText = async () => {
+      controls = animate(0, currentInput.length, {
+        duration: 2,
+        ease: 'linear',
+        onUpdate: (latest) => {
+          if (!isMounted) return;
+
+          setText(currentInput.slice(0, Math.floor(latest)));
+        },
+      });
+
+      await controls.finished;
+      if (!isMounted) return;
+
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      if (!isMounted) return;
+
+      // delete the text
+      controls = animate(currentInput.length, 0, {
+        duration: 1,
+        ease: 'linear',
+        onUpdate: (latest) => {
+          if (!isMounted) return;
+          setText(currentInput.slice(0, Math.round(latest)));
+        },
+      });
+
+      await controls.finished;
+      if (!isMounted) return;
+
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      if (!isMounted) return;
+
+      // move to next input
+      setInputIndex((prevIndex) => (prevIndex + 1) % inputs.length);
+    };
+
+    typeText();
+
+    return () => {
+      isMounted = false;
+      controls?.stop();
+    };
+  }, [inputIndex, isInView]);
 
   return (
     <section className="py-24 bg-slate-950 relative overflow-hidden">
@@ -55,25 +98,45 @@ const SmartSearch = () => {
           </p>
 
           {/* Search Interface */}
-          <div className="max-w-3xl mx-auto">
+          <div ref={containerRef} className="max-w-3xl mx-auto">
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-amber-400 rounded-xl opacity-25 group-hover:opacity-50 blur transition duration-500" />
-              <div className="relative bg-slate-900 rounded-xl border border-slate-700 p-2 flex items-center shadow-2xl">
-                <Search className="text-slate-500 ml-4" size={24} />
-                <input
-                  disabled
-                  value={text}
-                  className="w-full bg-transparent border-none focus:ring-0 text-white text-lg px-4 py-3 font-mono"
-                  placeholder=""
-                />
-                <div className="w-2 h-6 bg-amber-400 animate-pulse" />{' '}
-                {/* Cursor */}
-                <Button className="ml-2">Search</Button>
+              <div
+                className="absolute -inset-1 bg-linear-to-r 
+                from-indigo-500 to-amber-400 rounded-xl opacity-25 
+                group-hover:opacity-50 blur transition duration-500"
+              />
+              <div
+                className="relative bg-slate-900 rounded-xl border
+               border-slate-700 p-1 sm:p-2 flex items-center shadow-2xl"
+              >
+                <Search className="text-slate-500 m-2 sm:ml-4" size={24} />
+                <div className="h-full w-full flex justify-start px-1 sm:px-4">
+                  <span
+                    className="bg-transparent inline-block w-min-[2px]
+                  focus:ring-0 text-white font-mono cursor-default
+                  animate-border-blink border-r-2 border-amber-300 select-none
+                  text-xs sm:text-sm md:text-base lg:text-lg"
+                  >
+                    {text}
+                  </span>
+                </div>
+                <Button className="ml-2 text-sm md:text-base">Search</Button>
               </div>
             </div>
 
-            <div className="mt-8 flex justify-center gap-2 text-xs text-slate-500 uppercase tracking-widest font-semibold">
-              Powered by OpenAI API
+            <div
+              className="mt-8 flex flex-col items-center gap-2 
+              text-xs text-slate-500 uppercase tracking-widest 
+              font-semibold"
+            >
+              <p className="select-none">Powered by OpenAI API</p>
+              <Image
+                src="/images/icons/openai.png"
+                width={40}
+                height={40}
+                alt="OpenAI Logo"
+                className="animate-slow-rotate"
+              />
             </div>
           </div>
         </motion.div>
