@@ -40,19 +40,20 @@ const HeroOptionA_Background = () => {
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             <Badge>
-              <ShieldCheck size={14} className="mr-1 inline" /> Official Campus
-              Marketplace
+              <ShieldCheck size={14} className="mr-1 inline select-none" />{' '}
+              <span className="select-none">Official Campus Marketplace</span>
             </Badge>
-            <h1 className="text-6xl lg:text-8xl font-bold text-white mt-6 mb-6 leading-[1] tracking-tight">
+            <h1 className="text-6xl lg:text-8xl font-bold text-white mt-6 mb-6 leading-[1] tracking-tight select-none">
               Your Campus. <br />
-              <span
-                className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-indigo-300 to-white
-                    whitespace-nowrap"
-              >
-                Your Marketplace.
+              <span className="text-transparent bg-clip-text whitespace-nowrap select-none">
+                <span className="text-amber-300">Your</span>{' '}
+                <span className="text-indigo-400">Marketplace.</span>
               </span>
             </h1>
-            <p className="text-xl text-slate-200 mb-10 max-w-xl leading-relaxed font-medium drop-shadow-sm">
+            <p
+              className="text-xl text-slate-200 mb-10 max-w-xl 
+              leading-relaxed font-medium drop-shadow-sm select-none"
+            >
               Buy, sell, and trade safely with verified students at your
               university. Turn dorm clutter into cash instantly.
             </p>
@@ -64,7 +65,10 @@ const HeroOptionA_Background = () => {
               >
                 Start Selling <ArrowRight size={20} className="ml-1" />
               </Button>
-              <p className="text-slate-300 text-sm pl-4 border-l border-slate-700">
+              <p
+                className="text-slate-300 text-sm pl-4 border-l 
+                border-slate-700 select-none"
+              >
                 <strong className="text-white block text-lg">Zero Fees.</strong>
                 For students, forever.
               </p>

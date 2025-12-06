@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { Menu, X, ShoppingBag } from 'lucide-react';
 import Button from './ui/Button';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,11 +26,18 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <div className="flex items-center gap-2 font-bold text-xl tracking-tighter text-white">
-          <div className="w-8 h-8 bg-amber-400 rounded-lg flex items-center justify-center text-slate-950">
-            <ShoppingBag size={18} fill="currentColor" />
-          </div>
-          Campus<span className="text-indigo-400">Bazaar</span>
+        <div
+          className="flex items-center gap-2 font-bold text-2xl tracking-tighter
+           text-white"
+        >
+          <img
+            src="/images/campus_bazaar_bag_w50.png"
+            className="w-[30px]"
+            alt="Campus Bazaar Logo Bag"
+          />
+          <p className="relative mt-1 select-none">
+            Campus <span className="text-indigo-400">Bazaar</span>
+          </p>
         </div>
 
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
