@@ -87,10 +87,14 @@ const SmartSearch = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/5 text-indigo-300 text-sm mb-6">
+          <div
+            className="inline-flex items-center gap-2 px-3 py-1 
+              rounded-full border border-indigo-500/30 bg-indigo-500/5
+              text-indigo-300 text-sm mb-6 select-none"
+          >
             <Sparkles size={14} /> AI-Powered Semantics
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl font-bold text-white mb-6 select-none">
             Campus SmartSearch™
           </h2>
           <p className="text-slate-400 mb-12 max-w-2xl mx-auto">

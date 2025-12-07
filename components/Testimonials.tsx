@@ -33,7 +33,10 @@ const Testimonials = () => {
       ))}
 
       <div className="container mx-auto px-6 relative z-10">
-        <h2 className="text-4xl font-bold text-center text-white mb-16">
+        <h2
+          className="text-4xl font-bold text-center text-white mb-16
+          select-none"
+        >
           Students <span className="text-amber-400">Love It</span>
         </h2>
 

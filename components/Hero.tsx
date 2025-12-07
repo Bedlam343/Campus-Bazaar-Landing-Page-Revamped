@@ -31,7 +31,7 @@ const HeroOptionA_Background = () => {
           fill
         />
         {/* Heavy gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 to-indigo-950/60" />
+        <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/95 to-indigo-950/60" />
       </motion.div>
 
       <div className="container mx-auto px-6 relative z-20 pt-20">
@@ -80,7 +80,7 @@ const HeroOptionA_Background = () => {
       </div>
 
       {/* Bottom fade to blend with next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-slate-950 to-transparent z-10" />
     </section>
   );
 };
