@@ -2,14 +2,7 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import {
-  MailCheck,
-  Search,
-  Handshake,
-  ArrowDown,
-  Sparkles,
-} from 'lucide-react';
-import Badge from './ui/Badge';
+import { MailCheck, Search, Handshake, ArrowDown } from 'lucide-react';
 
 const HowItWorks = () => {
   const steps = [
@@ -64,31 +57,28 @@ const HowItWorks = () => {
     },
   };
 
-  // --- FIXED: Sequenced Path Animations ---
   // Path 1 draws first (Delay: 1s, Duration: 1.2s)
-  const path1Variants = {
+  const path1Variants: Variants = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: {
       pathLength: 1,
       opacity: 1,
       transition: {
         duration: 1.2,
-        ease: 'easeInOut',
-        delay: 1.0, // Wait for cards to appear
+        ease: 'easeIn',
       },
     },
   };
-
   // Path 2 draws immediately after Path 1 finishes (Delay: 1s + 1.2s = 2.2s)
-  const path2Variants = {
+  const path2Variants: Variants = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: {
       pathLength: 1,
       opacity: 1,
       transition: {
         duration: 1.2,
-        ease: 'easeInOut',
-        delay: 2.2, // Starts exactly when Path 1 ends
+        ease: 'easeOut',
+        delay: 1.2, // Starts exactly when Path 1 ends
       },
     },
   };
@@ -104,7 +94,7 @@ const HowItWorks = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-24 max-w-2xl mx-auto">
+        <div className="text-center mb-12 max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -117,13 +107,22 @@ const HowItWorks = () => {
                 Streamlined Process
               </span>
             </Badge> */}
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-6 mb-4 tracking-tight leading-tight">
+            <h2
+              className="text-3xl md:text-5xl font-bold text-white
+                mt-6 mb-4 tracking-tight leading-tight select-none"
+            >
               How{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-white to-amber-300">
-                Campus Bazaar{' '}
+              <span
+                className="text-transparent bg-clip-text 
+                bg-linear-to-r from-white to-slate-800/50"
+              >
+                It Works
               </span>
-              Works
             </h2>
+            <p className="text-slate-400 mb-12 max-w-2xl mx-auto">
+              Campus Bazaar makes buying and selling on campus simple, secure,
+              and student-focused. Here&apos;s our seamless 3-step process:
+            </p>
           </motion.div>
         </div>
 
@@ -133,7 +132,8 @@ const HowItWorks = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="relative grid md:grid-cols-3 gap-x-8 gap-y-16 items-center"
+          className="relative grid md:grid-cols-3 gap-x-8 gap-y-16 
+          items-center"
         >
           {/* === Desktop Abstract Connectors (SVGs) === */}
           <div className="hidden md:block absolute inset-0 pointer-events-none z-0">
@@ -215,7 +215,7 @@ const HowItWorks = () => {
 
                   {/* 2. The Main Glass Card */}
                   <div
-                    className="relative h-full bg-slate-900/25 
+                    className="relative h-full bg-slate-900/75 
                     border border-white/10 
                     rounded-[2.5rem] p-8 overflow-hidden transition-all 
                     duration-500 group-hover:border-white/20
