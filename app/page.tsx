@@ -1,11 +1,9 @@
-'use client';
-
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Hero2 from '@/components/Hero2';
 import TrustSignals from '@/components/TrustSignals';
 import SmartSearch from '@/components/SmartSearch';
-import Categories from '@/components/Categories';
+import Categories from '@/components/Categories/Categories';
 import Testimonials from '@/components/Testimonials';
 import Footer from '@/components/Footer';
 

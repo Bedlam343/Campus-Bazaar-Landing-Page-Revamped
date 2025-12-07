@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { GraduationCap, ShieldCheck, Zap } from 'lucide-react';
 
@@ -18,6 +20,7 @@ const TrustSignals = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
               className="flex items-center gap-3 text-slate-300 font-medium"
             >
               <div className="text-amber-400 scale-110">{f.icon}</div>
