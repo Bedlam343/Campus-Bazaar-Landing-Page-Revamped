@@ -50,7 +50,10 @@ const CategoriesUI = ({
   ];
 
   return (
-    <section className="py-24 bg-slate-950 relative overflow-hidden">
+    <section
+      id="marketplace"
+      className="py-24 bg-slate-950 relative overflow-hidden"
+    >
       {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[100px]" />
@@ -84,12 +87,7 @@ const CategoriesUI = ({
             tracking-tight select-none"
           >
             Everything You Need, <br />
-            <span
-              className="text-transparent bg-clip-text bg-linear-to-r
-             from-indigo-400 to-slate-800"
-            >
-              All In One Place
-            </span>
+            <span className="text-indigo-400">All In One Place</span>
           </motion.h2>
         </div>
 

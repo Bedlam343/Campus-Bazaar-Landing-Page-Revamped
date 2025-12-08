@@ -27,7 +27,10 @@ const SafetySection = () => {
   ];
 
   return (
-    <section className="py-20 bg-slate-950 relative overflow-hidden">
+    <section
+      id="safety-zones"
+      className="py-20 bg-slate-950 relative overflow-hidden"
+    >
       {/* Background subtle glow */}
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none -translate-x-1/2 translate-y-1/4" />
 

@@ -7,7 +7,7 @@ import { MailCheck, Search, Handshake, ArrowDown } from 'lucide-react';
 const HowItWorks = () => {
   const steps = [
     {
-      id: '01',
+      id: '1.',
       title: 'Verified Sign Up',
       description:
         'Connect using your campus .edu email. We verify every user to ensure a safe, student-only community.',
@@ -17,7 +17,7 @@ const HowItWorks = () => {
       gradientTo: '#3b82f6',
     },
     {
-      id: '02',
+      id: '2.',
       title: 'Smart Browsing',
       description:
         'Find exactly what you need instantly using our AI-powered semantic search tools.',
@@ -27,7 +27,7 @@ const HowItWorks = () => {
       gradientTo: '#d946ef',
     },
     {
-      id: '03',
+      id: '3.',
       title: 'Safe Exchange',
       description:
         'Chat securely and meet up in designated campus safety zones. Zero fees, 100% peace of mind.',
@@ -111,13 +111,7 @@ const HowItWorks = () => {
               className="text-3xl md:text-5xl font-bold text-white
                 mt-6 mb-4 tracking-tight leading-tight select-none"
             >
-              How{' '}
-              <span
-                className="text-transparent bg-clip-text 
-                bg-linear-to-r from-white to-slate-800"
-              >
-                It Works
-              </span>
+              How It Works
             </h2>
             <p className="text-slate-400 mb-12 max-w-2xl mx-auto">
               Campus Bazaar makes buying and selling on campus simple, secure,
@@ -231,13 +225,10 @@ const HowItWorks = () => {
 
                     {/* 3. Watermark Number */}
                     <span
-                      className="absolute -bottom-10 -right-4 text-[10rem] font-extrabold leading-none tracking-tighter select-none pointer-events-none font-sans"
-                      style={{
-                        background: `linear-gradient(to bottom, white, transparent)`,
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        opacity: 0.03,
-                      }}
+                      className="absolute top-6 left-6 text-3xl font-semibold
+                       leading-none tracking-tighter select-none pointer-events-none
+                       font-sans text-white/25 group-hover:text-white/50
+                       transition-colors duration-300"
                     >
                       {step.id}
                     </span>

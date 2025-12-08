@@ -1,12 +1,20 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 import Button from './ui/Button';
 
+const links = [
+  { name: 'How it Works', id: 'how-it-works' },
+  { name: 'Safety', id: 'safety-zones' },
+  { name: 'Marketplace', id: 'marketplace' },
+  { name: 'Testimonials', id: 'testimonials' },
+];
+
 const Navbar = () => {
+  const navbarRef = useRef<HTMLElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -16,8 +24,22 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleScroll = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const navbarHeight = navbarRef.current?.offsetHeight || 0;
+      const offset = navbarHeight - 50;
+
+      const targetY = element.offsetTop - offset;
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+
+      setMobileMenuOpen(false); // Close mobile menu on link click
+    }
+  };
+
   return (
     <motion.nav
+      ref={navbarRef}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -35,7 +57,7 @@ const Navbar = () => {
             alt="Campus Bazaar Logo Bag"
           />
           <p
-            className="relative  select-none font-bold
+            className="relative select-none font-bold
             tracking-tighter text-white text-2xl md:text-xl lg:text-2xl"
           >
             Campus <span className="text-indigo-400">Bazaar</span>
@@ -46,17 +68,15 @@ const Navbar = () => {
           className="hidden md:flex items-center gap-8 text-sm 
           font-medium text-slate-300"
         >
-          {['How it Works', 'Safety', 'Marketplace', 'Testimonials'].map(
-            (item) => (
-              <a
-                key={item}
-                href="#"
-                className="hover:text-white transition-colors"
-              >
-                {item}
-              </a>
-            ),
-          )}
+          {links.map(({ name, id }) => (
+            <button
+              key={id}
+              onClick={() => handleScroll(id)}
+              className="hover:text-white transition-colors"
+            >
+              {name}
+            </button>
+          ))}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -87,17 +107,15 @@ const Navbar = () => {
             className="md:hidden bg-slate-900 border-b border-slate-800 overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4">
-              {['How it Works', 'Safety', 'Marketplace', 'Testimonials'].map(
-                (item) => (
-                  <a
-                    key={item}
-                    href="#"
-                    className="text-slate-300 hover:text-white font-medium"
-                  >
-                    {item}
-                  </a>
-                ),
-              )}
+              {links.map(({ name, id }) => (
+                <button
+                  key={id}
+                  onClick={() => handleScroll(id)}
+                  className="text-slate-300 hover:text-white font-medium"
+                >
+                  {name}
+                </button>
+              ))}
               <Button variant="primary" className="w-full justify-center">
                 Join Now
               </Button>
