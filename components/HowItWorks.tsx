@@ -114,7 +114,7 @@ const HowItWorks = () => {
               How{' '}
               <span
                 className="text-transparent bg-clip-text 
-                bg-linear-to-r from-white to-slate-800/50"
+                bg-linear-to-r from-white to-slate-800"
               >
                 It Works
               </span>

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Marquee from 'react-fast-marquee';
-import { BookOpen, Laptop, Shirt, ShoppingBag, Sparkles } from 'lucide-react';
+import { Laptop, Shirt, ShoppingBag, ShoppingCart } from 'lucide-react';
 
 type Props = {
   clothingImages: string[];
@@ -66,9 +66,12 @@ const CategoriesUI = ({
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-800 bg-slate-900/50 text-amber-400 text-xs font-semibold tracking-wider uppercase mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 
+            rounded-full border border-slate-800 bg-slate-900/50
+             text-amber-400 text-xs font-semibold tracking-wider 
+             uppercase mb-6 select-none"
           >
-            <Sparkles size={12} />
+            <ShoppingCart size={12} />
             Marketplace Inventory
           </motion.div>
 
@@ -83,7 +86,7 @@ const CategoriesUI = ({
             Everything You Need, <br />
             <span
               className="text-transparent bg-clip-text bg-linear-to-r
-             from-indigo-400 to-slate-800/50"
+             from-indigo-400 to-slate-800"
             >
               All In One Place
             </span>
