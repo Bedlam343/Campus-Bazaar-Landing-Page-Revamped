@@ -86,7 +86,7 @@ const HowItWorks = () => {
   return (
     <section
       id="how-it-works"
-      className="pt-10 pb-32 bg-slate-950 relative overflow-hidden"
+      className="pt-8 pb-32 bg-slate-950 relative overflow-hidden"
     >
       {/* --- Ambient Background Noise & Light --- */}
       <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />

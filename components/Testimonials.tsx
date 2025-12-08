@@ -34,10 +34,10 @@ const Testimonials = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <h2
-          className="text-4xl font-bold text-center text-white mb-16
+          className="text-3xl md:text-5xl font-bold text-center text-white mb-16
           select-none"
         >
-          Students <span className="text-amber-400">Love It</span>
+          Students <span className="text-slate-100">Love It</span>
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8">

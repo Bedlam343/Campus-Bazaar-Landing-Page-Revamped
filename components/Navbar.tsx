@@ -27,22 +27,25 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <div
-          className="flex items-center gap-2 font-bold text-2xl tracking-tighter
-           text-white"
-        >
+        <div className="flex items-center gap-2">
           <Image
             src="/images/campus_bazaar_bag_w50.png"
             width={30}
             height={30}
             alt="Campus Bazaar Logo Bag"
           />
-          <p className="relative mt-1 select-none">
+          <p
+            className="relative  select-none font-bold
+            tracking-tighter text-white text-2xl md:text-xl lg:text-2xl"
+          >
             Campus <span className="text-indigo-400">Bazaar</span>
           </p>
         </div>
 
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <div
+          className="hidden md:flex items-center gap-8 text-sm 
+          font-medium text-slate-300"
+        >
           {['How it Works', 'Safety', 'Marketplace', 'Testimonials'].map(
             (item) => (
               <a
@@ -54,12 +57,16 @@ const Navbar = () => {
               </a>
             ),
           )}
-          <Button
-            variant="primary"
-            className="px-5 py-2 text-sm cursor-pointer"
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-indigo-600 hover:bg-indigo-500 text-white 
+            shadow-lg shadow-indigo-500/25 px-3 lg:px-6 py-3 
+            rounded-full font-bold transition-all flex items-center gap-2
+            text-xs lg:text-base"
           >
             Join Now
-          </Button>
+          </motion.button>
         </div>
 
         <button

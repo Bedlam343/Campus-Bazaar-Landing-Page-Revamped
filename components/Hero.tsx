@@ -45,20 +45,18 @@ const HeroOptionA_Background = () => {
               <ShieldCheck size={14} className="mr-1 inline select-none" />{' '}
               <span className="select-none">Official Campus Marketplace</span>
             </Badge>
-            <h1 className="text-6xl lg:text-8xl font-bold text-white mt-6 mb-6 leading-[1] tracking-tight select-none">
+            <h1
+              className="text-5xl sm:text-6xl lg:text-8xl font-bold
+             text-white mt-6 mb-6 leading-[1] tracking-tight select-none"
+            >
               Your Campus. <br />
               <span className="text-transparent bg-clip-text whitespace-nowrap select-none">
                 <span className="text-amber-300">Your</span>{' '}
-                <span
-                  className="text-transparent bg-clip-text bg-linear-to-r
-                from-indigo-400 to-slate-800/50"
-                >
-                  Marketplace.
-                </span>
+                <span className="text-indigo-400">Marketplace.</span>
               </span>
             </h1>
             <p
-              className="text-xl text-slate-200 mb-10 max-w-xl 
+              className="text-lg sm:text-xl text-slate-200 mb-10 max-w-xl 
               leading-relaxed font-medium drop-shadow-sm select-none"
             >
               Buy, sell, and trade safely with verified students at your
