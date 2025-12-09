@@ -178,11 +178,11 @@ const Footer = () => {
         </div>
 
         {/* GIANT WATERMARK */}
-        <div className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none select-none flex justify-center -mb-[5vw] opacity-[0.03]">
+        {/* <div className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none select-none flex justify-center -mb-[5vw] opacity-[0.03]">
           <h1 className="text-[18vw] font-black text-white leading-none whitespace-nowrap">
             CAMPUS BAZAAR
           </h1>
-        </div>
+        </div> */}
       </div>
     </footer>
   );
