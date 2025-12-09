@@ -68,7 +68,7 @@ const Footer = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 variant="accent"
-                className="h-14 px-10 text-lg rounded-full 
+                className="h-14 px-10 text-lg sm:text-sm md:text-lg rounded-full 
                 shadow-[0_0_30px_-5px_rgba(251,191,36,0.4)] 
                 hover:shadow-[0_0_50px_-5px_rgba(251,191,36,0.6)] 
                 transition-shadow cursor-pointer"
@@ -77,7 +77,7 @@ const Footer = () => {
               </Button>
               <Button
                 variant="secondary"
-                className="h-14 px-10 text-lg rounded-full 
+                className="h-14 px-10 text-lg sm:text-sm md:text-lg rounded-full 
                 bg-slate-900/50 border-slate-700 hover:bg-slate-800
                 cursor-pointer"
               >
